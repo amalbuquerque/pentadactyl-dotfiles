@@ -1,0 +1,67 @@
+"hg7101
+
+colorscheme solarized-dark
+" 2014-12-09 16:31:50, AA: Instead of:
+" source ~/.pentadactyl/colors/pentadactyl-solarized/colors/solarized-dark.penta
+set history=500
+set hintkeys=asdfghjkl;
+set hintmatching=firstletters
+"" disable smooth scroll
+set scrollsteps=1
+set scrolltime=0
+set editor='gvim'
+
+" Keymappings
+map , <Leader>
+nmap -builtin j 10j
+nmap -builtin k 10k
+
+"" prev selected tab
+nmap -builtin x <C-^>
+
+"" U list closed tabs
+nmap -builtin U :undo<Space>
+
+"" private mode
+nmap -builtin <leader>p :private-tab<CR>
+
+"" display download
+nmap -builtin <leader>d :downloads<CR>
+
+" Gmail
+set passkeys+=mail.google.com:jksacrqG#~`<CR>,gi,gl,gp
+autocmd LocationChange mail.google.com nmap -builtin l <C-v>`
+autocmd LocationChange mail.google.com nmap -builtin h <C-v>~
+	
+" Google Calendar
+set passkeys+="https://www\.google\.com/calendar":jkgt12345qrcnp
+	
+" Twitter
+set passkeys+="https://twitter\.com/":jkg/?.nrm
+
+" Github
+set passkeys+=github.com:t
+
+" Hints
+" :hi Hint font-family: Verdana; font-size: 12px; font-weight: bold; color:white; background-color: red;
+hi Hint font: "Envy Code R"; font-size: 12px; font-weight: bold; color:white; background-color: yellow; font-smooth: never;
+
+hi FontFixed -a font: 14px "Envy Code R" !important;
+hi FontFixed -a font-smooth: never !important;
+hi FontFixed -a font-weight: bold !important;
+hi FontCode -a font: 10px "Envy Code R" !important;
+hi FontCode -a font-smooth: never !important;
+hi FontCode -a font-weight: bold !important;
+
+command private-tab -nargs=+ -description "Open Private Tab" -javascript <<EOF
+        privateTab.readyToOpenTab(true);
+        gBrowser.addTab("about:blank");
+        dactyl.execute(":tablast");
+        dactyl.execute(":open " + args);
+        privateTab.stopToOpenTabs();
+EOF
+
+loadplugins '\.(js|penta)$'
+group user
+
+" vim: set ft=pentadactyl:

@@ -29,7 +29,7 @@ nmap -builtin <leader>p :private-tab<CR>
 nmap -builtin <leader>d :downloads<CR>
 
 " Gmail
-set passkeys+=mail.google.com:jksacrqG#~`<CR>,gi,gl,gp
+set passkeys+=mail.google.com:xjksacrqG#~`<CR>,gi,gl,gp
 autocmd LocationChange mail.google.com nmap -builtin l <C-v>`
 autocmd LocationChange mail.google.com nmap -builtin h <C-v>~
 	
@@ -39,8 +39,11 @@ set passkeys+="https://www\.google\.com/calendar":jkgt12345qrcnp
 " Twitter
 set passkeys+="https://twitter\.com/":jkg/?.nrm
 
+" Trello
+set passkeys+="https://trello\.com/":jkb/?cedln<>x
+
 " Github
-set passkeys+=github.com:t
+" set passkeys+=github.com:t
 
 " Hints
 " :hi Hint font-family: Verdana; font-size: 12px; font-weight: bold; color:white; background-color: red;
